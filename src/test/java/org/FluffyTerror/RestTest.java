@@ -55,11 +55,7 @@ public class RestTest {
         System.out.println("____________________________________________________");
         System.out.println("Список товаров:");
         objects.forEach(obj -> System.out.println(obj.getName() + " - " + obj.getType() + " - " + obj.isExotic()));
-        given()
-                .basePath("/api/data/reset")
-                .when()
-                .post();
-        RestAssured.reset();
+        reset();
     }
 
     @Test
@@ -105,6 +101,11 @@ public class RestTest {
         System.out.println("____________________________________________________");
         System.out.println("Список товаров:");
         objects.forEach(obj -> System.out.println(obj.getName() + " - " + obj.getType() + " - " + obj.isExotic()));
+        reset();
+
+    }
+
+    public static void reset() {
         given()
                 .basePath("/api/data/reset")
                 .when()
